@@ -53,7 +53,7 @@ class Game extends React.Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: false
     };
   }
 
@@ -64,7 +64,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? "B" : "A";
+    squares[i] = this.state.xIsNext ? "A" : "B";
     this.setState({
       history: history.concat([
         {
@@ -103,7 +103,7 @@ class Game extends React.Component {
     if (winner) {
       status = "Champion: " + winner;
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "spider" : "crowded-geek");
+      status = "Next player: " + (this.state.xIsNext ? "crowded-geek" : "spider");
     }
 
     return (
